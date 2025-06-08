@@ -9,7 +9,7 @@ export default function Home() {
       </div>
 
       <div className="w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p id="hello" className="text-2xl text-center">I am a full-stack developer!</p>
+        <p id="hello" className="text-2xl text-center">I am a web developer!</p>
       </div>
 
       <ButtonOpen />

@@ -11,7 +11,7 @@ function DonutChart() {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      ([e]) => setVisible(e.isIntersecting),
       { threshold: 0.4 }
     );
     obs.observe(el);
@@ -59,11 +59,11 @@ function DonutChart() {
       </svg>
       <div className="absolute flex flex-col items-center justify-center" style={{ width: size, height: size }}>
         <span className="text-3xl font-bold font-mono text-[var(--accent)]">70%</span>
-        <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)]">
+        <span className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)]">
           Delivering ROI
         </span>
       </div>
-      <div className="flex gap-6 text-xs font-mono">
+      <div className="flex gap-6 text-sm font-mono">
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-sm bg-gradient-to-r from-[var(--accent)] to-[var(--accent-secondary)]" />
           <span className="text-[var(--text-secondary)]">Delivering ROI <span className="text-[var(--text-primary)] font-semibold">70%</span></span>
@@ -98,7 +98,7 @@ function AnimBar({
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      ([e]) => setVisible(e.isIntersecting),
       { threshold: 0.3 }
     );
     obs.observe(el);
@@ -110,8 +110,8 @@ function AnimBar({
   return (
     <div ref={ref}>
       <div className="flex justify-between items-baseline mb-1.5">
-        <span className="text-sm text-[var(--text-primary)]">{label}</span>
-        <span className="font-mono text-sm font-semibold text-[var(--accent)]">{value}%</span>
+        <span className="text-base text-[var(--text-primary)]">{label}</span>
+        <span className="font-mono text-base font-semibold text-[var(--accent)]">{value}%</span>
       </div>
       <div className="h-3 rounded-full bg-[var(--border)] overflow-hidden">
         <div
@@ -139,7 +139,7 @@ function ComparisonBars() {
     <div className="space-y-6">
       {comparisons.map((c, i) => (
         <div key={c.label}>
-          <p className="text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-3">
+          <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-3">
             {c.label}
           </p>
           <div className="space-y-2">
@@ -193,7 +193,7 @@ export default function AnimatedCharts() {
     <div className="grid md:grid-cols-2 gap-6">
       {/* Donut */}
       <div className="glass-card p-6 md:p-8 flex flex-col items-center justify-center relative">
-        <p className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6 self-start">
+        <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6 self-start">
           Projects delivering meaningful ROI
         </p>
         <DonutChart />
@@ -201,7 +201,7 @@ export default function AnimatedCharts() {
 
       {/* Frequency */}
       <div className="glass-card p-6 md:p-8">
-        <p className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6">
+        <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6">
           How often orgs re-evaluate portfolio priorities
         </p>
         <FrequencyBars />
@@ -209,7 +209,7 @@ export default function AnimatedCharts() {
 
       {/* Comparison — spans full width */}
       <div className="glass-card p-6 md:p-8 md:col-span-2">
-        <p className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6">
+        <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6">
           Dynamic Planners vs Plodders — the SPM advantage
         </p>
         <ComparisonBars />

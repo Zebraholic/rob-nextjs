@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { IconCalculator, IconCurrencyDollar } from "@tabler/icons-react";
 
 function formatCurrency(value: number): string {
@@ -35,15 +35,15 @@ function SliderInput({
   return (
     <div className="mb-5">
       <div className="flex justify-between items-baseline mb-2">
-        <label className="text-sm text-[var(--text-primary)] font-medium">
+        <label className="text-base text-[var(--text-primary)] font-medium">
           {label}
         </label>
-        <span className="font-mono text-sm text-[var(--accent)] font-semibold">
+        <span className="font-mono text-base text-[var(--accent)] font-semibold">
           {format ? format(value) : value}
         </span>
       </div>
       {sublabel && (
-        <p className="text-[10px] text-[var(--text-secondary)] mb-2 font-mono uppercase tracking-wider">
+        <p className="text-sm text-[var(--text-secondary)] mb-2 font-mono uppercase tracking-wider">
           {sublabel}
         </p>
       )}
@@ -56,6 +56,7 @@ function SliderInput({
         </div>
         <input
           type="range"
+          aria-label={label}
           min={min}
           max={max}
           step={step}
@@ -86,6 +87,18 @@ interface ResultCardProps {
 }
 
 function ResultCard({ label, value, variant = "default" }: ResultCardProps) {
+  const [flash, setFlash] = useState(false);
+  const prevValue = useRef(value);
+
+  useEffect(() => {
+    if (prevValue.current !== value) {
+      prevValue.current = value;
+      setFlash(true);
+      const id = setTimeout(() => setFlash(false), 2500);
+      return () => clearTimeout(id);
+    }
+  }, [value]);
+
   const borderClass =
     variant === "highlight"
       ? "border-red-500/30"
@@ -98,15 +111,44 @@ function ResultCard({ label, value, variant = "default" }: ResultCardProps) {
       : variant === "savings"
         ? "text-emerald-400"
         : "text-[var(--accent)]";
+  const flashBg =
+    variant === "highlight"
+      ? "rgba(239,68,68,0.9)"
+      : variant === "savings"
+        ? "rgba(16,185,129,0.9)"
+        : "rgba(0,212,255,0.85)";
+  const flashBorder =
+    variant === "highlight"
+      ? "border-red-500"
+      : variant === "savings"
+        ? "border-emerald-500"
+        : "border-[var(--accent)]";
+  const flashTextClass =
+    variant === "highlight"
+      ? "text-white"
+      : variant === "savings"
+        ? "text-white"
+        : "text-[#0b0b1a]";
 
   return (
     <div
-      className={`glass-card p-4 border ${borderClass} text-center`}
+      className={`glass-card p-4 border ${flash ? flashBorder : borderClass} text-center transition-all duration-1000`}
+      style={{
+        backgroundColor: flash ? flashBg : undefined,
+        boxShadow: flash
+          ? variant === "highlight"
+            ? "0 0 40px rgba(239,68,68,0.5), inset 0 0 30px rgba(239,68,68,0.15)"
+            : variant === "savings"
+              ? "0 0 40px rgba(16,185,129,0.5), inset 0 0 30px rgba(16,185,129,0.15)"
+              : "0 0 40px rgba(0,212,255,0.45), inset 0 0 30px rgba(0,212,255,0.12)"
+          : undefined,
+        transform: flash ? "scale(1.03)" : undefined,
+      }}
     >
-      <p className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-2">
+      <p className={`text-sm font-mono uppercase tracking-wider mb-2 transition-colors duration-1000 ${flash ? "text-white/80" : "text-[var(--text-secondary)]"}`}>
         {label}
       </p>
-      <p className={`text-xl md:text-2xl font-bold font-mono ${valueClass}`}>
+      <p className={`text-xl md:text-2xl font-bold font-mono transition-colors duration-1000 ${flash ? flashTextClass : valueClass}`}>
         {value}
       </p>
     </div>
@@ -143,7 +185,7 @@ export default function RoiCalculator() {
   }, [spend, failRate, misaligned, delayPct, reallocDays, reduction]);
 
   return (
-    <div className="glass-card p-6 md:p-8 scan-line">
+    <div className="glass-card p-6 md:p-8">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/15 to-blue-500/15 flex items-center justify-center text-[var(--accent)]">
           <IconCalculator size={20} stroke={1.5} />
@@ -155,7 +197,7 @@ export default function RoiCalculator() {
           >
             ROI Impact Calculator
           </h4>
-          <p className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider">
+          <p className="text-sm font-mono text-[var(--text-secondary)] uppercase tracking-wider">
             Adjust inputs to see projected waste &amp; savings
           </p>
         </div>

@@ -103,6 +103,17 @@ body {
   animation: scroll-dot 1.5s ease-in-out infinite;
 }
 
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 0.8; transform: scale(1); }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+  filter: blur(0.5px);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.4), 0 0 8px rgba(0, 212, 255, 0.2);
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.7s ease-out forwards;
 }
@@ -158,6 +169,134 @@ body {
   background-clip: text;
 }
 
+/* ─── LIGHT SECTION ─── */
+.section-light {
+  background: #f0f2f5;
+  color: #1a1a2e;
+}
+
+.section-light .terminal-label {
+  color: #0e7490;
+}
+
+.section-light .terminal-label::before {
+  color: #6d28d9;
+}
+
+.section-light .section-heading::after {
+  background: linear-gradient(90deg, #0e7490, #6d28d9, transparent);
+}
+
+.section-light h2,
+.section-light h3 {
+  color: #0f172a;
+}
+
+.section-light p,
+.section-light .text-\[var\(--text-secondary\)\] {
+  color: #475569;
+}
+
+.section-light .glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: #d1d5db;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.section-light .glass-card:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1), 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.section-light .glass-card::before {
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+}
+
+.section-light .skill-pill {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.25);
+  color: #0e7490;
+}
+
+.section-light .skill-pill:hover {
+  background: rgba(0, 212, 255, 0.14);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.12);
+}
+
+.section-light .text-\[var\(--accent\)\],
+.section-light .text-\[var\(--accent-light\)\] {
+  color: #0e7490;
+}
+
+.section-light .text-\[var\(--text-primary\)\] {
+  color: #0f172a;
+}
+
+.section-light .gradient-text-warm {
+  background: linear-gradient(135deg, #0e7490, #6d28d9, #c026d3);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-light .node-dot {
+  background: #0e7490;
+  box-shadow: 0 0 8px #0e7490;
+}
+
+.section-light .btn-primary {
+  color: #ffffff;
+}
+
+.section-light .btn-secondary {
+  color: #0f172a;
+  border-color: #d1d5db;
+}
+
+.section-light .btn-secondary:hover {
+  border-color: #0e7490;
+  background: rgba(0, 212, 255, 0.06);
+}
+
+/* ─── DARK COMPONENT (dark island inside light sections) ─── */
+.dark-component {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.dark-component .glass-card {
+  background: linear-gradient(135deg, rgba(20, 20, 48, 0.9), rgba(16, 16, 42, 0.75));
+  border-color: var(--border);
+}
+
+.dark-component .glass-card:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.12), 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.dark-component .skill-pill {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.2);
+  color: var(--accent-light);
+}
+
+.dark-component p,
+.dark-component span {
+  color: inherit;
+}
+
+.dark-component .text-\[var\(--text-secondary\)\] {
+  color: var(--text-secondary);
+}
+
+.dark-component .text-\[var\(--accent\)\] {
+  color: var(--accent);
+}
+
 /* ─── GLASS CARD ─── */
 .glass-card {
   background: linear-gradient(135deg, rgba(20, 20, 48, 0.9), rgba(16, 16, 42, 0.75));
@@ -202,7 +341,7 @@ body {
   background: rgba(0, 212, 255, 0.08);
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 8px;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-family: var(--font-mono, monospace);
   color: var(--accent-light);
   transition: all 0.3s ease;
@@ -294,7 +433,7 @@ body {
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono, monospace);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
@@ -312,24 +451,6 @@ body {
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 8px var(--accent), 0 0 20px rgba(0, 212, 255, 0.2);
-}
-
-/* ─── SCAN LINE FOR CARDS ─── */
-.scan-line {
-  position: relative;
-  overflow: hidden;
-}
-
-.scan-line::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: linear-gradient(180deg, rgba(0, 212, 255, 0.03), transparent);
-  animation: scan-line 4s ease-in-out infinite;
-  pointer-events: none;
 }
 
 @layer utilities {

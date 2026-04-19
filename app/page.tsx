@@ -2,6 +2,7 @@ import Nav from "./components/Nav";
 import SkillsSection from "./components/SkillsSection";
 import RoiCalculator from "./components/RoiCalculator";
 import AnimatedCharts from "./components/AnimatedCharts";
+import { Twinkles } from "./components/HeroEffects";
 import {
   IconArrowDown,
   IconMail,
@@ -32,11 +33,8 @@ export default function Home() {
         <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] bg-[var(--accent-secondary)]/8 rounded-full blur-[150px] pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--accent)]/[0.02] rounded-full blur-[100px] pointer-events-none" />
 
-        {/* Orbiting nodes — decorative */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] pointer-events-none">
-          <div className="absolute top-0 left-1/2 node-dot" style={{ animation: "orbit 12s linear infinite" }} />
-          <div className="absolute top-0 left-1/2 node-dot opacity-50" style={{ animation: "orbit 18s linear infinite reverse" }} />
-        </div>
+        {/* Twinkle stars */}
+        <Twinkles />
 
         <div className="relative max-w-4xl mx-auto text-center animate-fade-in-up z-10">
           {/* Terminal-style label */}
@@ -59,7 +57,7 @@ export default function Home() {
           </p>
 
           {/* Code-style subtext */}
-          <p className="font-mono text-sm text-[var(--accent)]/60 mb-10">
+          <p className="font-mono text-base text-[var(--accent)]/60 mb-10">
             {'{'} react · next.js · typescript · node.js {'}'}
           </p>
 
@@ -75,7 +73,7 @@ export default function Home() {
           </div>
 
           {/* Status indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-8 mt-16 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider">
+          <div className="flex flex-wrap items-center justify-center gap-8 mt-16 text-sm font-mono text-[var(--text-secondary)] uppercase tracking-wider">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
               Available for work
@@ -91,20 +89,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-7 h-11 border border-[var(--border)] rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-2.5 bg-[var(--accent)] rounded-full animate-scroll-dot" />
-          </div>
-        </div>
+        {/* Twinkle stars */}
+        <Twinkles />
       </section>
 
       {/* ───── ABOUT ───── */}
-      <section id="about" className="py-28 px-6 relative">
+      <section id="about" className="py-28 px-6 relative section-light">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* Left visual */}
           <div className="relative">
-            <div className="glass-card animate-pulse-glow p-10 aspect-square flex items-center justify-center scan-line">
+            <div className="glass-card animate-pulse-glow p-10 aspect-square flex items-center justify-center">
               <div className="text-center">
                 <IconBrain size={80} className="mx-auto mb-6 text-[var(--accent)]" stroke={1} />
                 <p
@@ -164,7 +158,7 @@ export default function Home() {
       <SkillsSection />
 
       {/* ───── PORTFOLIO ───── */}
-      <section id="portfolio" className="py-28 px-6 relative">
+      <section id="portfolio" className="py-28 px-6 relative section-light">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="terminal-label mb-4">portfolio.showcase()</div>
           <h2
@@ -179,22 +173,18 @@ export default function Home() {
           </p>
 
           {/* ROI Calculator */}
-          <div className="mb-8">
+          <div className="dark-component mb-8">
             <h3
-              className="text-xl font-semibold mb-4 flex items-center gap-2"
-              style={{ fontFamily: "var(--font-space)" }}
-            >
+              className="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
               <span className="text-[var(--accent)]">{'//'}</span> ROI Impact Calculator
             </h3>
             <RoiCalculator />
           </div>
 
           {/* Animated Charts */}
-          <div>
+          <div className="dark-component">
             <h3
-              className="text-xl font-semibold mb-4 flex items-center gap-2"
-              style={{ fontFamily: "var(--font-space)" }}
-            >
+              className="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
               <span className="text-[var(--accent)]">{'//'}</span> Animated Data Visualisations
             </h3>
             <AnimatedCharts />
@@ -246,14 +236,14 @@ export default function Home() {
                 desc: "From Figma to pixel-perfect, responsive implementations — bridging design and dev.",
               },
             ].map((item) => (
-              <div key={item.title} className="glass-card p-7 group scan-line">
+              <div key={item.title} className="glass-card p-7 group">
                 <div className="text-[var(--accent)] mb-4 group-hover:animate-float">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: "var(--font-space)" }}>
                   {item.title}
                 </h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
+                <p className="text-[var(--text-secondary)] leading-relaxed text-base">
                   {item.desc}
                 </p>
               </div>
@@ -263,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* ───── CONTACT ───── */}
-      <section id="contact" className="py-28 px-6 relative">
+      <section id="contact" className="py-28 px-6 relative section-light">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[var(--accent)]/5 rounded-full blur-[150px] pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="terminal-label mb-4 justify-center">connection.open</div>
@@ -308,8 +298,8 @@ export default function Home() {
       </section>
 
       {/* ───── FOOTER ───── */}
-      <footer className="py-8 px-6 border-t border-[var(--border)]">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--text-secondary)]">
+      <footer className="py-8 px-6 border-t border-[var(--border)] bg-[var(--bg-primary)]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-mono text-[var(--text-secondary)]">
           <p>
             &copy; {new Date().getFullYear()} Robert Tavares — built with Next.js, Tailwind, &amp; AI
           </p>

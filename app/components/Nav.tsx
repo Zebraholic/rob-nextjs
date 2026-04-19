@@ -29,11 +29,19 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
-          className="text-lg font-bold tracking-tight font-mono"
+          className="flex items-center gap-2.5 group"
         >
-          <span className="text-[var(--accent)]">{'<'}</span>
-          <span className="gradient-text">Rob Tavares</span>
-          <span className="text-[var(--accent)]">{' />'}</span>
+          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[var(--accent)] to-[var(--accent-secondary)] flex items-center justify-center text-sm font-bold text-white shadow-[0_0_12px_var(--glow-cyan)] group-hover:shadow-[0_0_20px_var(--glow-cyan)] transition-shadow duration-300"
+            style={{ fontFamily: "var(--font-space)" }}
+          >
+            RT
+          </div>
+          <span
+            className="text-lg font-semibold tracking-tight text-[var(--text-primary)]"
+            style={{ fontFamily: "var(--font-space)" }}
+          >
+            Rob Tavares
+          </span>
         </a>
 
         {/* Desktop */}
@@ -42,7 +50,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-light)] transition-colors duration-200"
+              className="text-base text-[var(--text-secondary)] hover:text-[var(--accent-light)] transition-colors duration-200"
             >
               {l.label}
             </a>

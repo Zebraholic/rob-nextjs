@@ -60,7 +60,7 @@ export default function SkillsSection() {
           {categories.map((cat) => (
             <div
               key={cat.title}
-              className={`glass-card p-6 border ${cat.borderColor} group scan-line`}
+              className={`glass-card p-6 border ${cat.borderColor} group`}
             >
               <div
                 className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cat.color} flex items-center justify-center text-[var(--accent)] mb-4`}

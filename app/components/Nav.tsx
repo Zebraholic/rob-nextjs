@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { IconAtom } from "@tabler/icons-react";
 
 const links = [
   { label: "About", href: "#about" },
@@ -29,18 +30,11 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
-          className="flex items-center gap-2.5 group"
+          className="group flex items-center gap-4"
         >
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[var(--accent)] to-[var(--accent-secondary)] flex items-center justify-center text-sm font-bold text-white shadow-[0_0_12px_var(--glow-cyan)] group-hover:shadow-[0_0_20px_var(--glow-cyan)] transition-shadow duration-300"
-            style={{ fontFamily: "var(--font-space)" }}
-          >
-            RT
-          </div>
-          <span
-            className="text-lg font-semibold tracking-tight text-[var(--text-primary)]"
-            style={{ fontFamily: "var(--font-space)" }}
-          >
-            Rob Tavares
+          <IconAtom size={36} className="text-[var(--accent)] group-hover:rotate-180 transition-transform duration-500" stroke={1.5} />
+          <span className="text-4xl font-extrabold tracking-[0.15em] font-display gradient-text">
+            ROB
           </span>
         </a>
 

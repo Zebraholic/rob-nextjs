@@ -29,9 +29,9 @@ export default function Home() {
       {/* ───── HERO ───── */}
       <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
         {/* Ambient glows */}
-        <div className="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[var(--accent)]/8 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] bg-[var(--accent-secondary)]/8 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--accent)]/[0.02] rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[rgba(0,212,255,0.08)] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] bg-[rgba(123,97,255,0.08)] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[rgba(0,212,255,0.02)] rounded-full blur-[100px] pointer-events-none" />
 
         {/* Twinkle stars */}
         <Twinkles />
@@ -44,8 +44,7 @@ export default function Home() {
           </div>
 
           <h1
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6"
-            style={{ fontFamily: "var(--font-space)" }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6 font-display"
           >
             Hi, I&apos;m{" "}
             <span className="gradient-text">Robert</span>
@@ -57,7 +56,7 @@ export default function Home() {
           </p>
 
           {/* Code-style subtext */}
-          <p className="font-mono text-base text-[var(--accent)]/60 mb-10">
+          <p className="font-mono text-base text-[rgba(0,212,255,0.6)] mb-10">
             {'{'} react · next.js · typescript · node.js {'}'}
           </p>
 
@@ -102,8 +101,7 @@ export default function Home() {
               <div className="text-center">
                 <IconBrain size={80} className="mx-auto mb-6 text-[var(--accent)]" stroke={1} />
                 <p
-                  className="text-xl font-bold gradient-text-warm leading-relaxed"
-                  style={{ fontFamily: "var(--font-space)" }}
+                  className="text-xl font-bold gradient-text-warm leading-relaxed font-display"
                 >
                   Thinking in components.
                   <br />
@@ -112,16 +110,15 @@ export default function Home() {
               </div>
             </div>
             {/* Decorative corner accents */}
-            <div className="absolute -top-2 -left-2 w-8 h-8 border-t border-l border-[var(--accent)]/20 rounded-tl-lg" />
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b border-r border-[var(--accent-secondary)]/20 rounded-br-lg" />
+            <div className="absolute -top-2 -left-2 w-8 h-8 border-t border-l border-[rgba(0,212,255,0.2)] rounded-tl-lg" />
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b border-r border-[rgba(123,97,255,0.2)] rounded-br-lg" />
           </div>
 
           {/* Right text */}
           <div>
             <div className="terminal-label mb-4">about.config</div>
             <h2
-              className="text-4xl md:text-5xl font-bold section-heading mb-8"
-              style={{ fontFamily: "var(--font-space)" }}
+              className="text-4xl md:text-5xl font-bold section-heading mb-8 font-display"
             >
               Who I Am
             </h2>
@@ -162,8 +159,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="terminal-label mb-4">portfolio.showcase()</div>
           <h2
-            className="text-4xl md:text-5xl font-bold section-heading mb-6"
-            style={{ fontFamily: "var(--font-space)" }}
+            className="text-4xl md:text-5xl font-bold section-heading mb-6 font-display"
           >
             Things I Build
           </h2>
@@ -197,8 +193,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="terminal-label mb-4">process.methods</div>
           <h2
-            className="text-4xl md:text-5xl font-bold section-heading mb-16"
-            style={{ fontFamily: "var(--font-space)" }}
+            className="text-4xl md:text-5xl font-bold section-heading mb-16 font-display"
           >
             How I Work
           </h2>
@@ -240,7 +235,7 @@ export default function Home() {
                 <div className="text-[var(--accent)] mb-4 group-hover:animate-float">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: "var(--font-space)" }}>
+                <h3 className="text-lg font-semibold mb-2 font-display">
                   {item.title}
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed text-base">
@@ -254,12 +249,11 @@ export default function Home() {
 
       {/* ───── CONTACT ───── */}
       <section id="contact" className="py-28 px-6 relative section-light">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[var(--accent)]/5 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[rgba(0,212,255,0.05)] rounded-full blur-[150px] pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="terminal-label mb-4 justify-center">connection.open</div>
           <h2
-            className="text-4xl md:text-5xl font-bold mb-6"
-            style={{ fontFamily: "var(--font-space)" }}
+            className="text-4xl md:text-5xl font-bold mb-6 font-display"
           >
             Get in Touch
           </h2>

@@ -50,8 +50,7 @@ export default function SkillsSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="terminal-label mb-4">skills.map()</div>
         <h2
-          className="text-4xl md:text-5xl font-bold section-heading mb-16"
-          style={{ fontFamily: "var(--font-space)" }}
+          className="text-4xl md:text-5xl font-bold section-heading mb-16 font-display"
         >
           Core Skills
         </h2>
@@ -67,7 +66,7 @@ export default function SkillsSection() {
               >
                 {cat.icon}
               </div>
-              <h3 className="text-base font-semibold mb-4" style={{ fontFamily: "var(--font-space)" }}>
+              <h3 className="text-base font-semibold mb-4 font-display">
                 {cat.title}
               </h3>
               <div className="flex flex-wrap gap-2">

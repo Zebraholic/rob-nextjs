@@ -293,8 +293,22 @@ body {
   color: var(--text-secondary);
 }
 
+.dark-component .text-\[var\(--text-primary\)\] {
+  color: var(--text-primary);
+}
+
 .dark-component .text-\[var\(--accent\)\] {
   color: var(--accent);
+}
+
+.dark-component .text-\[var\(--accent-light\)\] {
+  color: var(--accent-light);
+}
+
+.dark-component label,
+.dark-component h3,
+.dark-component h4 {
+  color: var(--text-primary);
 }
 
 /* ─── GLASS CARD ─── */

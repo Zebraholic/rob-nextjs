@@ -1,18 +1,326 @@
-import Image from "next/image";
-import ButtonOpen from "./components/ButtonOpen";
+import Nav from "./components/Nav";
+import SkillsSection from "./components/SkillsSection";
+import RoiCalculator from "./components/RoiCalculator";
+import AnimatedCharts from "./components/AnimatedCharts";
+import {
+  IconArrowDown,
+  IconMail,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconRocket,
+  IconAccessible,
+  IconTestPipe,
+  IconTargetArrow,
+  IconUsers,
+  IconRulerMeasure,
+  IconBrain,
+  IconArrowUp,
+  IconTerminal2,
+  IconBolt,
+  IconCode,
+} from "@tabler/icons-react";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-       <h1 className="text-6xl text-center">HI THERE!!</h1>
-      </div>
+    <>
+      <Nav />
 
-      <div className="w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p id="hello" className="text-2xl text-center">I am a web developer!</p>
-      </div>
+      {/* ───── HERO ───── */}
+      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        {/* Ambient glows */}
+        <div className="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[var(--accent)]/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] bg-[var(--accent-secondary)]/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--accent)]/[0.02] rounded-full blur-[100px] pointer-events-none" />
 
-      <ButtonOpen />
-    </main>
+        {/* Orbiting nodes — decorative */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] pointer-events-none">
+          <div className="absolute top-0 left-1/2 node-dot" style={{ animation: "orbit 12s linear infinite" }} />
+          <div className="absolute top-0 left-1/2 node-dot opacity-50" style={{ animation: "orbit 18s linear infinite reverse" }} />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto text-center animate-fade-in-up z-10">
+          {/* Terminal-style label */}
+          <div className="terminal-label mb-8 justify-center">
+            <IconTerminal2 size={14} />
+            <span>initializing<span className="animate-blink">_</span></span>
+          </div>
+
+          <h1
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6"
+            style={{ fontFamily: "var(--font-space)" }}
+          >
+            Hi, I&apos;m{" "}
+            <span className="gradient-text">Robert</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-4 leading-relaxed text-balance">
+            I build intelligent, performant, and beautifully crafted web
+            experiences — powered by modern frameworks and an AI‑first mindset.
+          </p>
+
+          {/* Code-style subtext */}
+          <p className="font-mono text-sm text-[var(--accent)]/60 mb-10">
+            {'{'} react · next.js · typescript · node.js {'}'}
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href="#skills" className="btn-primary">
+              <IconBolt size={16} />
+              Explore My Skills
+            </a>
+            <a href="#contact" className="btn-secondary">
+              <IconCode size={16} />
+              Let&apos;s Build Together
+            </a>
+          </div>
+
+          {/* Status indicators */}
+          <div className="flex flex-wrap items-center justify-center gap-8 mt-16 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
+              Available for work
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--glow-cyan)]" />
+              AI-augmented workflow
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-secondary)] shadow-[0_0_8px_var(--glow-purple)]" />
+              Full-stack capable
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
+          <div className="w-7 h-11 border border-[var(--border)] rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-2.5 bg-[var(--accent)] rounded-full animate-scroll-dot" />
+          </div>
+        </div>
+      </section>
+
+      {/* ───── ABOUT ───── */}
+      <section id="about" className="py-28 px-6 relative">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+          {/* Left visual */}
+          <div className="relative">
+            <div className="glass-card animate-pulse-glow p-10 aspect-square flex items-center justify-center scan-line">
+              <div className="text-center">
+                <IconBrain size={80} className="mx-auto mb-6 text-[var(--accent)]" stroke={1} />
+                <p
+                  className="text-xl font-bold gradient-text-warm leading-relaxed"
+                  style={{ fontFamily: "var(--font-space)" }}
+                >
+                  Thinking in components.
+                  <br />
+                  Building with intelligence.
+                </p>
+              </div>
+            </div>
+            {/* Decorative corner accents */}
+            <div className="absolute -top-2 -left-2 w-8 h-8 border-t border-l border-[var(--accent)]/20 rounded-tl-lg" />
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b border-r border-[var(--accent-secondary)]/20 rounded-br-lg" />
+          </div>
+
+          {/* Right text */}
+          <div>
+            <div className="terminal-label mb-4">about.config</div>
+            <h2
+              className="text-4xl md:text-5xl font-bold section-heading mb-8"
+              style={{ fontFamily: "var(--font-space)" }}
+            >
+              Who I Am
+            </h2>
+            <div className="space-y-5 text-[var(--text-secondary)] leading-relaxed text-lg">
+              <p>
+                I&apos;m a frontend developer who leverages{" "}
+                <span className="text-[var(--accent-light)] font-medium">
+                  AI-augmented workflows
+                </span>{" "}
+                to turn complex problems into elegant, high-performance
+                interfaces. With deep experience in{" "}
+                <span className="text-[var(--text-primary)] font-medium">
+                  React, Next.js, and TypeScript
+                </span>
+                , I build web applications that are fast, accessible, and
+                intelligent.
+              </p>
+              <p>
+                I thrive in agile environments where I can bridge design and
+                engineering — from pixel-perfect UIs to API integrations,
+                AI-powered features, and performance optimisation.
+              </p>
+              <p>
+                My approach combines traditional engineering rigour with modern
+                AI tooling to ship faster, iterate smarter, and build interfaces
+                that don&apos;t just look great — they <em>think</em> ahead.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ───── SKILLS ───── */}
+      <SkillsSection />
+
+      {/* ───── PORTFOLIO ───── */}
+      <section id="portfolio" className="py-28 px-6 relative">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="terminal-label mb-4">portfolio.showcase()</div>
+          <h2
+            className="text-4xl md:text-5xl font-bold section-heading mb-6"
+            style={{ fontFamily: "var(--font-space)" }}
+          >
+            Things I Build
+          </h2>
+          <p className="text-[var(--text-secondary)] text-lg mb-12 max-w-2xl leading-relaxed">
+            Interactive data visualisations, calculators, and UI components
+            I&apos;ve designed and developed. These are live, functional recreations.
+          </p>
+
+          {/* ROI Calculator */}
+          <div className="mb-8">
+            <h3
+              className="text-xl font-semibold mb-4 flex items-center gap-2"
+              style={{ fontFamily: "var(--font-space)" }}
+            >
+              <span className="text-[var(--accent)]">{'//'}</span> ROI Impact Calculator
+            </h3>
+            <RoiCalculator />
+          </div>
+
+          {/* Animated Charts */}
+          <div>
+            <h3
+              className="text-xl font-semibold mb-4 flex items-center gap-2"
+              style={{ fontFamily: "var(--font-space)" }}
+            >
+              <span className="text-[var(--accent)]">{'//'}</span> Animated Data Visualisations
+            </h3>
+            <AnimatedCharts />
+          </div>
+        </div>
+      </section>
+
+      {/* ───── HOW I WORK ───── */}
+      <section id="experience" className="py-28 px-6 relative">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="terminal-label mb-4">process.methods</div>
+          <h2
+            className="text-4xl md:text-5xl font-bold section-heading mb-16"
+            style={{ fontFamily: "var(--font-space)" }}
+          >
+            How I Work
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 stagger-children">
+            {[
+              {
+                icon: <IconRocket size={32} stroke={1.5} />,
+                title: "Performance First",
+                desc: "Optimised for Core Web Vitals, SSR/ISR, lazy-loading, and edge-ready architectures.",
+              },
+              {
+                icon: <IconAccessible size={32} stroke={1.5} />,
+                title: "Accessible by Default",
+                desc: "Semantic HTML, ARIA, keyboard nav, and screen reader testing baked into every component.",
+              },
+              {
+                icon: <IconTestPipe size={32} stroke={1.5} />,
+                title: "Quality Driven",
+                desc: "Jest unit tests, code reviews, A/B testing, and CI/CD pipelines for confident deploys.",
+              },
+              {
+                icon: <IconTargetArrow size={32} stroke={1.5} />,
+                title: "Conversion Focused",
+                desc: "CRO strategies combined with clean UX to build interfaces that drive measurable results.",
+              },
+              {
+                icon: <IconUsers size={32} stroke={1.5} />,
+                title: "Agile Collaboration",
+                desc: "Scrum workflows, Jira & Confluence, daily stand-ups, retros, cross-functional teamwork.",
+              },
+              {
+                icon: <IconRulerMeasure size={32} stroke={1.5} />,
+                title: "Design to Code",
+                desc: "From Figma to pixel-perfect, responsive implementations — bridging design and dev.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="glass-card p-7 group scan-line">
+                <div className="text-[var(--accent)] mb-4 group-hover:animate-float">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: "var(--font-space)" }}>
+                  {item.title}
+                </h3>
+                <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ───── CONTACT ───── */}
+      <section id="contact" className="py-28 px-6 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[var(--accent)]/5 rounded-full blur-[150px] pointer-events-none" />
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <div className="terminal-label mb-4 justify-center">connection.open</div>
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-6"
+            style={{ fontFamily: "var(--font-space)" }}
+          >
+            Get in Touch
+          </h2>
+          <p className="text-[var(--text-secondary)] text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+            Ready to build something intelligent together? I&apos;m always open to
+            new opportunities and collaborations.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="mailto:hello@roberttavares.dev"
+              className="btn-primary"
+            >
+              <IconMail size={18} />
+              Send an Email
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+            >
+              <IconBrandGithub size={18} />
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+            >
+              <IconBrandLinkedin size={18} />
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ───── FOOTER ───── */}
+      <footer className="py-8 px-6 border-t border-[var(--border)]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--text-secondary)]">
+          <p>
+            &copy; {new Date().getFullYear()} Robert Tavares — built with Next.js, Tailwind, &amp; AI
+          </p>
+          <a
+            href="#"
+            className="hover:text-[var(--accent)] transition-colors flex items-center gap-1"
+          >
+            scroll_to_top <IconArrowUp size={12} />
+          </a>
+        </div>
+      </footer>
+    </>
   );
 }

@@ -2,7 +2,7 @@ import Nav from "./components/Nav";
 import SkillsSection from "./components/SkillsSection";
 import RoiCalculator from "./components/RoiCalculator";
 import AnimatedCharts from "./components/AnimatedCharts";
-import { Twinkles } from "./components/HeroEffects";
+import { Twinkles, RunningHorse } from "./components/HeroEffects";
 import {
   IconArrowDown,
   IconMail,
@@ -90,6 +90,9 @@ export default function Home() {
 
         {/* Twinkle stars */}
         <Twinkles />
+
+        {/* Running horse */}
+        <RunningHorse />
       </section>
 
       {/* ───── ABOUT ───── */}
@@ -270,7 +273,7 @@ export default function Home() {
               Send an Email
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/Zebraholic"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
@@ -279,7 +282,7 @@ export default function Home() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/robtavares1"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"

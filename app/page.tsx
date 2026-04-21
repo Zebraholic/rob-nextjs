@@ -1,7 +1,6 @@
 import Nav from "./components/Nav";
 import SkillsSection from "./components/SkillsSection";
-import RoiCalculator from "./components/RoiCalculator";
-import AnimatedCharts from "./components/AnimatedCharts";
+import PortfolioShowcase from "./components/PortfolioShowcase";
 import ContactForm from "./components/ContactForm";
 import { Twinkles, RunningHorse } from "./components/HeroEffects";
 import {
@@ -186,23 +185,7 @@ export default function Home() {
             I&apos;ve designed and developed. These are live, functional recreations.
           </p>
 
-          {/* ROI Calculator */}
-          <div className="dark-component mb-8">
-            <h3
-              className="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
-              <span className="text-[var(--accent)]">{'//'}</span> ROI Impact Calculator
-            </h3>
-            <RoiCalculator />
-          </div>
-
-          {/* Animated Charts */}
-          <div className="dark-component">
-            <h3
-              className="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
-              <span className="text-[var(--accent)]">{'//'}</span> Animated Data Visualisations
-            </h3>
-            <AnimatedCharts />
-          </div>
+          <PortfolioShowcase />
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import Nav from "./components/Nav";
 import SkillsSection from "./components/SkillsSection";
 import RoiCalculator from "./components/RoiCalculator";
 import AnimatedCharts from "./components/AnimatedCharts";
+import ContactForm from "./components/ContactForm";
 import { Twinkles, RunningHorse } from "./components/HeroEffects";
 import {
   IconArrowDown,
@@ -52,7 +53,7 @@ export default function Home() {
 
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-4 leading-relaxed text-balance">
             I build intelligent, performant, and beautifully crafted web
-            experiences — powered by modern frameworks and an AI‑first mindset.
+            experiences, powered by modern frameworks and an AI‑first mindset.
           </p>
 
           {/* Code-style subtext */}
@@ -75,7 +76,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-8 mt-16 text-sm font-mono text-[var(--text-secondary)] uppercase tracking-wider">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
-              Available for work
+              Design-first mindset
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--glow-cyan)]" />
@@ -83,7 +84,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-secondary)] shadow-[0_0_8px_var(--glow-purple)]" />
-              Full-stack capable
+              Ships fast & iterates
             </div>
           </div>
         </div>
@@ -97,14 +98,27 @@ export default function Home() {
 
       {/* ───── ABOUT ───── */}
       <section id="about" className="py-28 px-6 relative section-light">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left visual */}
           <div className="relative">
-            <div className="glass-card animate-pulse-glow p-10 aspect-square flex items-center justify-center">
+            <div
+              className="glass-card p-10 aspect-square flex items-center justify-center"
+              style={{
+                backgroundImage: "linear-gradient(135deg, #1a1a3e, #2a1a4e, #141430, #1a1a3e, #0b0b1a)",
+                backgroundSize: "300% 300%",
+                animation: "gradient-shift 6s ease infinite",
+              }}
+            >
               <div className="text-center">
-                <IconBrain size={80} className="mx-auto mb-6 text-[var(--accent)]" stroke={1} />
+                <img
+                  src="/images/rob-avatar.png"
+                  alt="Robert Tavares"
+                  className="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-2 border-[rgba(0,212,255,0.2)]"
+                />
                 <p
-                  className="text-xl font-bold gradient-text-warm leading-relaxed font-display"
+                  className="text-xl font-bold leading-relaxed font-display"
+                  style={{ color: "#ffffff" }}
                 >
                   Thinking in components.
                   <br />
@@ -141,15 +155,16 @@ export default function Home() {
               </p>
               <p>
                 I thrive in agile environments where I can bridge design and
-                engineering — from pixel-perfect UIs to API integrations,
+                engineering, from pixel-perfect UIs to API integrations,
                 AI-powered features, and performance optimisation.
               </p>
               <p>
                 My approach combines traditional engineering rigour with modern
                 AI tooling to ship faster, iterate smarter, and build interfaces
-                that don&apos;t just look great — they <em>think</em> ahead.
+                that don&apos;t just look great, they <em>think</em> ahead.
               </p>
             </div>
+          </div>
           </div>
         </div>
       </section>
@@ -231,7 +246,7 @@ export default function Home() {
               {
                 icon: <IconRulerMeasure size={32} stroke={1.5} />,
                 title: "Design to Code",
-                desc: "From Figma to pixel-perfect, responsive implementations — bridging design and dev.",
+                desc: "From Figma to pixel-perfect, responsive implementations, bridging design and dev.",
               },
             ].map((item) => (
               <div key={item.title} className="glass-card p-7 group">
@@ -264,14 +279,12 @@ export default function Home() {
             Ready to build something intelligent together? I&apos;m always open to
             new opportunities and collaborations.
           </p>
+
+          <div className="max-w-lg mx-auto mb-10">
+            <ContactForm />
+          </div>
+
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="mailto:hello@roberttavares.dev"
-              className="btn-primary"
-            >
-              <IconMail size={18} />
-              Send an Email
-            </a>
             <a
               href="https://github.com/Zebraholic"
               target="_blank"
@@ -298,7 +311,7 @@ export default function Home() {
       <footer className="py-8 px-6 border-t border-[var(--border)] bg-[var(--bg-primary)]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-mono text-[var(--text-secondary)]">
           <p>
-            &copy; {new Date().getFullYear()} Robert Tavares — built with Next.js, Tailwind, &amp; AI
+            &copy; {new Date().getFullYear()}{" "}Robert Tavares 
           </p>
           <a
             href="#"

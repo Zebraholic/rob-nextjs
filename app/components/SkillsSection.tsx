@@ -12,14 +12,14 @@ const categories = [
     icon: <IconPalette size={22} stroke={1.5} />,
     color: "from-cyan-500/15 to-blue-500/15",
     borderColor: "border-cyan-500/15 hover:border-cyan-500/35",
-    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Material UI"],
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind", "Vitest", "HTML5", "CSS3", "Material UI"],
   },
   {
     title: "Backend / Data",
     icon: <IconServer size={22} stroke={1.5} />,
     color: "from-emerald-500/15 to-teal-500/15",
     borderColor: "border-emerald-500/15 hover:border-emerald-500/35",
-    skills: ["Node.js", "REST APIs", "GraphQL", "SQL", "MySQL"],
+    skills: ["Node.js", "REST APIs", "GraphQL"],
   },
   {
     title: "Tools & Platforms",
@@ -33,7 +33,7 @@ const categories = [
     icon: <IconClipboardCheck size={22} stroke={1.5} />,
     color: "from-sky-500/15 to-indigo-500/15",
     borderColor: "border-sky-500/15 hover:border-sky-500/35",
-    skills: ["Agile/Scrum", "A/B Testing", "Unit Testing (Jest)", "Code Reviews", "SEO", "Accessibility"],
+    skills: ["Agile/Scrum", "A/B Testing", "Code Reviews", "SEO", "Accessibility"],
   },
   {
     title: "Other",

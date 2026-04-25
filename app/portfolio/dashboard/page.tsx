@@ -10,6 +10,8 @@ export default function DashboardPage() {
       tags={["Dashboard", "Tables", "Data"]}
       icon={<IconDashboard size={28} stroke={1.5} />}
       color="from-violet-500/20 to-purple-500/20"
+      accent="#6d28d9"
+      accentSecondary="#7c3aed"
     >
       <MarketingDashboard />
     </ProjectPage>

@@ -92,7 +92,9 @@ export default function PasswordGenerator() {
         </button>
         <button
           onClick={generate}
-          className="p-3 rounded-lg border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[rgba(0,212,255,0.05)] transition-colors"
+          className="p-3 rounded-lg border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
+          onMouseEnter={e => e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--accent) 5%, transparent)'}
+          onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
           title="Generate"
         >
           <IconRefresh size={20} className="text-[var(--accent)]" />
@@ -151,9 +153,10 @@ export default function PasswordGenerator() {
               key={opt.label}
               className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg border cursor-pointer transition-all ${
                 opt.checked
-                  ? "border-[var(--accent)]/40 bg-[rgba(0,212,255,0.06)]"
+                  ? "border-[var(--accent)]/40"
                   : "border-[var(--border)] hover:border-[var(--border)]/80"
               }`}
+              style={opt.checked ? { backgroundColor: 'color-mix(in srgb, var(--accent) 6%, transparent)' } : undefined}
             >
               <input
                 type="checkbox"

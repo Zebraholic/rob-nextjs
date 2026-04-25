@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { IconAtom } from "@tabler/icons-react";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
@@ -34,7 +34,7 @@ export default function Nav() {
         >
           <IconAtom size={36} className="text-[var(--accent)] group-hover:rotate-180 transition-transform duration-500" stroke={1.5} />
           <span className="text-4xl font-extrabold tracking-[0.15em] font-display gradient-text">
-            ROB
+            ROB TAVARES
           </span>
         </a>
 

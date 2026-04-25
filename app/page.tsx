@@ -2,7 +2,7 @@ import Nav from "./components/Nav";
 import SkillsSection from "./components/SkillsSection";
 import PortfolioShowcase from "./components/PortfolioShowcase";
 import ContactForm from "./components/ContactForm";
-import { Twinkles, RunningHorse } from "./components/HeroEffects";
+import { Twinkles } from "./components/HeroEffects";
 import {
   IconArrowDown,
   IconMail,
@@ -47,17 +47,17 @@ export default function Home() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6 font-display"
           >
             Hi, I&apos;m{" "}
-            <span className="gradient-text">Robert</span>
+            <span className="gradient-text">Rob</span>
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-4 leading-relaxed text-balance">
-            I build intelligent, performant, and beautifully crafted web
-            experiences, powered by modern frameworks and an AI‑first mindset.
+            Engineering-focused leader with 15+ years delivering scalable web
+            platforms, leading dev teams, and shipping high-impact products.
           </p>
 
           {/* Code-style subtext */}
           <p className="font-mono text-base text-[rgba(0,212,255,0.6)] mb-10">
-            {'{'} react · next.js · typescript · node.js {'}'}
+            {'{'} react · next.js · typescript · node.js · leadership {'}'}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -67,7 +67,7 @@ export default function Home() {
             </a>
             <a href="#contact" className="btn-secondary">
               <IconCode size={16} />
-              Let&apos;s Build Together
+              Let&apos;s Connect
             </a>
           </div>
 
@@ -75,11 +75,11 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-8 mt-16 text-sm font-mono text-[var(--text-secondary)] uppercase tracking-wider">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
-              Design-first mindset
+              Engineering leadership
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--glow-cyan)]" />
-              AI-augmented workflow
+              15+ years experience
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-secondary)] shadow-[0_0_8px_var(--glow-purple)]" />
@@ -90,9 +90,6 @@ export default function Home() {
 
         {/* Twinkle stars */}
         <Twinkles />
-
-        {/* Running horse */}
-        <RunningHorse />
       </section>
 
       {/* ───── ABOUT ───── */}
@@ -119,9 +116,9 @@ export default function Home() {
                   className="text-xl font-bold leading-relaxed font-display"
                   style={{ color: "#ffffff" }}
                 >
-                  Thinking in components.
+                  Leading teams.
                   <br />
-                  Building with intelligence.
+                  Shipping platforms.
                 </p>
               </div>
             </div>
@@ -140,27 +137,27 @@ export default function Home() {
             </h2>
             <div className="space-y-5 text-[var(--text-secondary)] leading-relaxed text-lg">
               <p>
-                I&apos;m a frontend developer who leverages{" "}
+                I&apos;m an{" "}
                 <span className="text-[var(--accent-light)] font-medium">
-                  AI-augmented workflows
+                  engineering-focused leader
                 </span>{" "}
-                to turn complex problems into elegant, high-performance
-                interfaces. With deep experience in{" "}
+                with 15+ years delivering scalable web platforms and
+                customer-facing products. I lead developers, drive execution,
+                and partner with product and design to ship high-impact features.
+              </p>
+              <p>
+                My technical depth spans{" "}
                 <span className="text-[var(--text-primary)] font-medium">
-                  React, Next.js, and TypeScript
+                  React, Next.js, TypeScript, APIs, and CMS architecture
                 </span>
-                , I build web applications that are fast, accessible, and
-                intelligent.
+                , combined with operational rigor to improve velocity, code
+                quality, and team performance.
               </p>
               <p>
-                I thrive in agile environments where I can bridge design and
-                engineering, from pixel-perfect UIs to API integrations,
-                AI-powered features, and performance optimisation.
-              </p>
-              <p>
-                My approach combines traditional engineering rigour with modern
-                AI tooling to ship faster, iterate smarter, and build interfaces
-                that don&apos;t just look great, they <em>think</em> ahead.
+                I&apos;m experienced in experimentation, performance optimization,
+                and building engineering best practices in fast-paced
+                environments. I bridge business, product, and engineering
+                to translate complex requirements into scalable solutions.
               </p>
             </div>
           </div>
@@ -202,34 +199,34 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6 stagger-children">
             {[
               {
-                icon: <IconRocket size={32} stroke={1.5} />,
-                title: "Performance First",
-                desc: "Optimised for Core Web Vitals, SSR/ISR, lazy-loading, and edge-ready architectures.",
+                icon: <IconUsers size={32} stroke={1.5} />,
+                title: "Team Leadership",
+                desc: "Manage and mentor developers through 1:1s, coaching, and code reviews to improve team effectiveness and delivery quality.",
               },
               {
-                icon: <IconAccessible size={32} stroke={1.5} />,
-                title: "Accessible by Default",
-                desc: "Semantic HTML, ARIA, keyboard nav, and screen reader testing baked into every component.",
+                icon: <IconRocket size={32} stroke={1.5} />,
+                title: "Platform Delivery",
+                desc: "End-to-end execution of web rebrands, migrations, and platform launches, delivered on time with a high bar for quality.",
               },
               {
                 icon: <IconTestPipe size={32} stroke={1.5} />,
-                title: "Quality Driven",
-                desc: "Jest unit tests, code reviews, A/B testing, and CI/CD pipelines for confident deploys.",
+                title: "Experimentation",
+                desc: "Build and scale A/B testing programs to enable rapid iteration and data-driven product decisions.",
               },
               {
                 icon: <IconTargetArrow size={32} stroke={1.5} />,
-                title: "Conversion Focused",
-                desc: "CRO strategies combined with clean UX to build interfaces that drive measurable results.",
+                title: "Cross-Functional",
+                desc: "Partner with product, design, and marketing to define roadmap priorities and align on technical solutions.",
               },
               {
-                icon: <IconUsers size={32} stroke={1.5} />,
-                title: "Agile Collaboration",
-                desc: "Scrum workflows, Jira & Confluence, daily stand-ups, retros, cross-functional teamwork.",
+                icon: <IconAccessible size={32} stroke={1.5} />,
+                title: "Engineering Standards",
+                desc: "Establish best practices across deployment workflows, QA, reusable component architecture, and accessibility.",
               },
               {
                 icon: <IconRulerMeasure size={32} stroke={1.5} />,
-                title: "Design to Code",
-                desc: "From Figma to pixel-perfect, responsive implementations, bridging design and dev.",
+                title: "System Integration",
+                desc: "Architect integrations across third-party systems, analytics, and data tools to improve reliability and tracking.",
               },
             ].map((item) => (
               <div key={item.title} className="glass-card p-7 group">
@@ -259,8 +256,8 @@ export default function Home() {
             Get in Touch
           </h2>
           <p className="text-[var(--text-secondary)] text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-            Ready to build something intelligent together? I&apos;m always open to
-            new opportunities and collaborations.
+            Have a project in mind or just want to connect? Drop me a message
+            and let&apos;s start a conversation.
           </p>
 
           <div className="max-w-lg mx-auto mb-10">

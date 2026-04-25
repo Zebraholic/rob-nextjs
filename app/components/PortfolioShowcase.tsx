@@ -18,6 +18,7 @@ interface Project {
   tags: string[];
   icon: ReactNode;
   color: string;
+  accent: string;
 }
 
 const PROJECTS: Project[] = [
@@ -29,6 +30,7 @@ const PROJECTS: Project[] = [
     tags: ["React", "TypeScript", "Data Viz"],
     icon: <IconCalculator size={28} stroke={1.5} />,
     color: "from-cyan-500/20 to-blue-500/20",
+    accent: "#00d4ff",
   },
   {
     slug: "charts",
@@ -37,7 +39,8 @@ const PROJECTS: Project[] = [
       "SVG-powered donut charts and animated bar graphs with intersection observer triggers and smooth transitions.",
     tags: ["SVG", "Animation", "Charts"],
     icon: <IconChartBar size={28} stroke={1.5} />,
-    color: "from-emerald-500/20 to-teal-500/20",
+    color: "from-indigo-500/20 to-blue-500/20",
+    accent: "#818cf8",
   },
   {
     slug: "dashboard",
@@ -47,6 +50,7 @@ const PROJECTS: Project[] = [
     tags: ["Dashboard", "Tables", "Data"],
     icon: <IconDashboard size={28} stroke={1.5} />,
     color: "from-violet-500/20 to-purple-500/20",
+    accent: "#a78bfa",
   },
   {
     slug: "password",
@@ -56,6 +60,7 @@ const PROJECTS: Project[] = [
     tags: ["Utility", "Crypto API", "UX"],
     icon: <IconLock size={28} stroke={1.5} />,
     color: "from-amber-500/20 to-orange-500/20",
+    accent: "#f59e0b",
   },
 ];
 
@@ -87,10 +92,16 @@ export default function PortfolioShowcase() {
           <Link
             href={`/portfolio/${project.slug}`}
             className="group block glass-card p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg h-full"
+            style={{
+              "--card-accent": project.accent,
+              background: `linear-gradient(135deg, ${project.accent}18, ${project.accent}0a)`,
+              borderColor: `${project.accent}30`,
+            } as React.CSSProperties}
           >
             {/* Icon */}
             <div
-              className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center mb-4 text-[var(--accent)] group-hover:scale-110 transition-transform`}
+              className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+              style={{ color: project.accent }}
             >
               {project.icon}
             </div>
@@ -107,7 +118,11 @@ export default function PortfolioShowcase() {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-mono px-2 py-1 rounded-md bg-[rgba(0,212,255,0.08)] text-[var(--accent)] border border-[rgba(0,212,255,0.15)]"
+                  className="text-xs font-mono px-2 py-1 rounded-md text-[var(--text-primary)]"
+                  style={{
+                    backgroundColor: `${project.accent}25`,
+                    border: `1px solid ${project.accent}40`,
+                  }}
                 >
                   {tag}
                 </span>
@@ -115,7 +130,10 @@ export default function PortfolioShowcase() {
             </div>
 
             {/* CTA */}
-            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[var(--accent)] opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1">
+            <div
+              className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1"
+              style={{ color: project.accent }}
+            >
               View live demo <IconArrowRight size={14} />
             </div>
           </Link>

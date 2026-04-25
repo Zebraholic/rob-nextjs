@@ -102,7 +102,7 @@ export default function MarketingDashboard() {
           { label: "Conversions", value: 1302, prefix: "", suffix: "", display: "1,302", sparkData: [50, 80, 95, 110, 105, 130, 125, 140, 155, 160, 170, 182] },
           { label: "Budget Used", value: 68, prefix: "", suffix: "%", display: "68%", sparkData: [10, 18, 25, 30, 38, 42, 48, 52, 56, 60, 64, 68] },
         ].map((kpi) => (
-          <div key={kpi.label} className="rounded-xl border border-[var(--border)] bg-[rgba(0,212,255,0.03)] p-4">
+          <div key={kpi.label} className="rounded-xl border border-[var(--border)] p-4" style={{ backgroundColor: 'color-mix(in srgb, var(--accent) 3%, transparent)' }}>
             <p className="text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-1">{kpi.label}</p>
             <p className="text-2xl font-bold font-mono text-[var(--text-primary)]">
               {kpi.suffix === "%" ? (
@@ -118,7 +118,7 @@ export default function MarketingDashboard() {
 
       <div className="grid md:grid-cols-3 gap-4">
         {/* Campaign Table */}
-        <div className="md:col-span-2 rounded-xl border border-[var(--border)] bg-[rgba(0,212,255,0.02)] overflow-hidden">
+        <div className="md:col-span-2 rounded-xl border border-[var(--border)] overflow-hidden" style={{ backgroundColor: 'color-mix(in srgb, var(--accent) 2%, transparent)' }}>
           <div className="px-4 py-3 border-b border-[var(--border)]">
             <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)]">Active Campaigns</p>
           </div>
@@ -135,15 +135,15 @@ export default function MarketingDashboard() {
               </thead>
               <tbody>
                 {CAMPAIGNS.map((c) => (
-                  <tr key={c.name} className="border-b border-[var(--border)]/50 hover:bg-[rgba(0,212,255,0.03)] transition-colors">
+                  <tr key={c.name} className="border-b border-[var(--border)]/50 transition-colors" style={{ backgroundColor: 'transparent' }} onMouseEnter={e => e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--accent) 3%, transparent)'} onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}>
                     <td className="px-4 py-2.5 text-[var(--text-primary)] font-medium whitespace-nowrap">{c.name}</td>
                     <td className="px-4 py-2.5">
                       <span className={`inline-flex items-center gap-1.5 text-xs font-mono px-2 py-0.5 rounded-full ${
                         c.status === "active"
-                          ? "bg-emerald-500/15 text-emerald-400"
-                          : "bg-amber-500/15 text-amber-400"
+                          ? "bg-emerald-500/15 text-emerald-700"
+                          : "bg-amber-500/15 text-amber-700"
                       }`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${c.status === "active" ? "bg-emerald-400" : "bg-amber-400"}`} />
+                        <span className={`w-1.5 h-1.5 rounded-full ${c.status === "active" ? "bg-emerald-600" : "bg-amber-600"}`} />
                         {c.status}
                       </span>
                     </td>
@@ -161,7 +161,7 @@ export default function MarketingDashboard() {
         </div>
 
         {/* Channel Breakdown */}
-        <div className="rounded-xl border border-[var(--border)] bg-[rgba(0,212,255,0.02)] p-4">
+        <div className="rounded-xl border border-[var(--border)] p-4" style={{ backgroundColor: 'color-mix(in srgb, var(--accent) 2%, transparent)' }}>
           <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-4">Channel Breakdown</p>
           <div className="space-y-3">
             {CHANNELS.map((ch, i) => (
@@ -172,7 +172,7 @@ export default function MarketingDashboard() {
           <div className="mt-6 pt-4 border-t border-[var(--border)]">
             <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-2">Top Performer</p>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.5)]" />
+              <span className="w-2 h-2 rounded-full bg-emerald-600 shadow-[0_0_6px_rgba(5,150,105,0.5)]" />
               <span className="text-[var(--text-primary)] font-medium">Paid Search</span>
               <span className="ml-auto font-mono text-[var(--accent)]">4.8% CTR</span>
             </div>

@@ -65,7 +65,7 @@ function NumberInput({
               const v = Number(e.target.value);
               if (!isNaN(v)) onChange(clamp(v));
             }}
-            className={`w-full py-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--accent)] font-sans text-base font-semibold text-right outline-none transition-all duration-200 focus:border-[var(--accent)] focus:shadow-[0_0_12px_var(--glow-cyan)] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${prefix ? "pl-7 pr-3" : "px-3"} ${suffix ? "pr-8" : ""}`}
+            className={`w-full py-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] font-sans text-base font-semibold text-right outline-none transition-all duration-200 focus:border-[var(--accent)] focus:shadow-[0_0_12px_var(--glow-cyan)] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${prefix ? "pl-7 pr-3" : "px-3"} ${suffix ? "pr-8" : ""}`}
           />
           {suffix && (
             <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] font-sans text-sm pointer-events-none">
@@ -106,28 +106,21 @@ function ResultCard({ label, value, variant = "default", hero = false }: ResultC
         : "border-[var(--border)]";
   const valueClass =
     variant === "highlight"
-      ? "text-red-400"
-      : variant === "savings"
-        ? "text-emerald-400"
-        : "text-[var(--accent)]";
+      ? "text-red-700"
+      : "text-[var(--text-primary)]";
   const flashBg =
     variant === "highlight"
       ? "rgba(239,68,68,0.9)"
       : variant === "savings"
         ? "rgba(16,185,129,0.9)"
-        : "rgba(0,212,255,0.85)";
+        : "color-mix(in srgb, var(--accent) 85%, transparent)";
   const flashBorder =
     variant === "highlight"
       ? "border-red-500"
       : variant === "savings"
         ? "border-emerald-500"
         : "border-[var(--accent)]";
-  const flashTextClass =
-    variant === "highlight"
-      ? "text-white"
-      : variant === "savings"
-        ? "text-white"
-        : "text-[#0b0b1a]";
+  const flashTextClass = "text-white";
 
   return (
     <div
@@ -139,7 +132,7 @@ function ResultCard({ label, value, variant = "default", hero = false }: ResultC
             ? "0 0 40px rgba(239,68,68,0.5), inset 0 0 30px rgba(239,68,68,0.15)"
             : variant === "savings"
               ? "0 0 40px rgba(16,185,129,0.5), inset 0 0 30px rgba(16,185,129,0.15)"
-              : "0 0 40px rgba(0,212,255,0.45), inset 0 0 30px rgba(0,212,255,0.12)"
+              : "0 0 40px var(--glow-cyan), inset 0 0 30px color-mix(in srgb, var(--accent) 12%, transparent)"
           : hero
             ? "0 0 25px rgba(16,185,129,0.15), inset 0 0 20px rgba(16,185,129,0.05)"
             : undefined,
@@ -188,9 +181,9 @@ export default function RoiCalculator() {
   }, [spend, failRate, misaligned, delayPct, reallocDays, reduction]);
 
   return (
-    <div className="glass-card p-6 md:p-8">
+    <div className="glass-card p-6 md:p-8" style={{ background: 'color-mix(in srgb, var(--accent) 4%, white)' }}>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/15 to-blue-500/15 flex items-center justify-center text-[var(--accent)]">
+        <div className="w-10 h-10 rounded-lg flex items-center justify-center text-[var(--accent)]" style={{ background: `color-mix(in srgb, var(--accent) 12%, transparent)` }}>
           <IconCalculator size={20} stroke={1.5} />
         </div>
         <div>

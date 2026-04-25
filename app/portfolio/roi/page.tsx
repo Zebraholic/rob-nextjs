@@ -10,6 +10,8 @@ export default function RoiPage() {
       tags={["React", "TypeScript", "Data Viz"]}
       icon={<IconCalculator size={28} stroke={1.5} />}
       color="from-cyan-500/20 to-blue-500/20"
+      accent="#0e7490"
+      accentSecondary="#1d4ed8"
     >
       <RoiCalculator />
     </ProjectPage>

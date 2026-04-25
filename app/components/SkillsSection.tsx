@@ -3,44 +3,44 @@ import {
   IconServer,
   IconTool,
   IconClipboardCheck,
-  IconSparkles,
+  IconUsers,
 } from "@tabler/icons-react";
 
 const categories = [
   {
-    title: "Frontend",
+    title: "Engineering Leadership",
+    icon: <IconUsers size={22} stroke={1.5} />,
+    color: "from-fuchsia-500/15 to-pink-500/15",
+    borderColor: "border-fuchsia-500/15 hover:border-fuchsia-500/35",
+    skills: ["Team Management", "Mentorship", "Performance Development", "Hiring Support", "Code Reviews"],
+  },
+  {
+    title: "Technical",
     icon: <IconPalette size={22} stroke={1.5} />,
     color: "from-cyan-500/15 to-blue-500/15",
     borderColor: "border-cyan-500/15 hover:border-cyan-500/35",
-    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind", "Vitest", "HTML5", "CSS3", "Material UI"],
+    skills: ["JavaScript (ES5/ES6)", "TypeScript", "React", "Next.js", "Node/Express", "GraphQL", "REST APIs"],
   },
   {
-    title: "Backend / Data",
+    title: "Architecture & Delivery",
     icon: <IconServer size={22} stroke={1.5} />,
     color: "from-emerald-500/15 to-teal-500/15",
     borderColor: "border-emerald-500/15 hover:border-emerald-500/35",
-    skills: ["Node.js", "REST APIs", "GraphQL"],
-  },
-  {
-    title: "Tools & Platforms",
-    icon: <IconTool size={22} stroke={1.5} />,
-    color: "from-violet-500/15 to-purple-500/15",
-    borderColor: "border-violet-500/15 hover:border-violet-500/35",
-    skills: ["GitHub", "Jira", "Figma", "Google Analytics", "Confluence"],
+    skills: ["System Design", "API Integrations", "CI/CD", "Scalable Web Platforms"],
   },
   {
     title: "Practices",
     icon: <IconClipboardCheck size={22} stroke={1.5} />,
     color: "from-sky-500/15 to-indigo-500/15",
     borderColor: "border-sky-500/15 hover:border-sky-500/35",
-    skills: ["Agile/Scrum", "A/B Testing", "Code Reviews", "SEO", "Accessibility"],
+    skills: ["Agile/Scrum", "A/B Testing", "CRO", "SEO", "Accessibility", "UX/UI"],
   },
   {
-    title: "Other",
-    icon: <IconSparkles size={22} stroke={1.5} />,
-    color: "from-fuchsia-500/15 to-pink-500/15",
-    borderColor: "border-fuchsia-500/15 hover:border-fuchsia-500/35",
-    skills: ["CRO", "UX/UI", "Responsive Design"],
+    title: "Tools & Platforms",
+    icon: <IconTool size={22} stroke={1.5} />,
+    color: "from-violet-500/15 to-purple-500/15",
+    borderColor: "border-violet-500/15 hover:border-violet-500/35",
+    skills: ["Git/GitHub", "Claude Code", "GitHub Copilot", "Vercel", "Confluence", "Figma", "Jira"],
   },
 ];
 

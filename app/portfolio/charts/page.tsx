@@ -9,7 +9,9 @@ export default function ChartsPage() {
       description="SVG-powered donut charts and animated bar graphs with intersection observer triggers and smooth transitions."
       tags={["SVG", "Animation", "Charts"]}
       icon={<IconChartBar size={28} stroke={1.5} />}
-      color="from-emerald-500/20 to-teal-500/20"
+      color="from-indigo-500/20 to-blue-500/20"
+      accent="#4338ca"
+      accentSecondary="#1d4ed8"
     >
       <AnimatedCharts />
     </ProjectPage>

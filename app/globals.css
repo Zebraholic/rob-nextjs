@@ -114,33 +114,6 @@ body {
   box-shadow: 0 0 4px rgba(255, 255, 255, 0.4), 0 0 8px rgba(0, 212, 255, 0.2);
 }
 
-/* Running horse */
-@keyframes horse-run {
-  0%   { transform: translateX(-80px); }
-  100% { transform: translateX(calc(100vw + 80px)); }
-}
-@keyframes leg-gallop-1 {
-  0%, 100% { transform: rotate(-25deg); }
-  50%      { transform: rotate(25deg); }
-}
-@keyframes leg-gallop-2 {
-  0%, 100% { transform: rotate(25deg); }
-  50%      { transform: rotate(-25deg); }
-}
-
-.animate-horse-leg-front1 { transform-origin: top; animation: leg-gallop-1 0.25s ease-in-out infinite; }
-.animate-horse-leg-front2 { transform-origin: top; animation: leg-gallop-2 0.25s ease-in-out infinite; }
-.animate-horse-leg-back1  { transform-origin: top; animation: leg-gallop-2 0.25s ease-in-out infinite; }
-.animate-horse-leg-back2  { transform-origin: top; animation: leg-gallop-1 0.25s ease-in-out infinite; }
-
-.horse-runner:hover .animate-horse-leg-front1,
-.horse-runner:hover .animate-horse-leg-front2,
-.horse-runner:hover .animate-horse-leg-back1,
-.horse-runner:hover .animate-horse-leg-back2 {
-  animation-play-state: paused;
-}
-
-
 .animate-fade-in-up {
   animation: fadeInUp 0.7s ease-out forwards;
 }
@@ -336,6 +309,32 @@ body {
 .dark-component h3,
 .dark-component h4 {
   color: var(--text-primary);
+}
+
+/* ─── LIGHT COMPONENT (light island for portfolio demos) ─── */
+.light-component {
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.light-component .glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.light-component .glass-card::before {
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.light-component .glass-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--accent) 10%, transparent), 0 2px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.light-component .btn-primary {
+  color: #ffffff;
 }
 
 /* ─── GLASS CARD ─── */

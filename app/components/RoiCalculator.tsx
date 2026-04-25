@@ -34,7 +34,8 @@ function NumberInput({
   prefix,
   suffix,
 }: SliderInputProps) {
-  const clamp = (v: number) => Math.min(max, Math.max(min, v));
+  const [rawInput, setRawInput] = useState<string | null>(null);
+  const formatted = `${prefix || ""}${value.toLocaleString("en-US")}${suffix || ""}`;
   return (
     <div className="mb-4">
       <div className="flex items-center gap-3">
@@ -48,30 +49,25 @@ function NumberInput({
             </p>
           )}
         </div>
-        <div className="relative shrink-0 w-32">
-          {prefix && (
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] font-sans text-sm pointer-events-none">
-              {prefix}
-            </span>
-          )}
+        <div className="relative shrink-0 w-40">
           <input
-            type="number"
+            type="text"
+            inputMode="numeric"
             aria-label={label}
-            min={min}
-            max={max}
-            step={step}
-            value={value}
-            onChange={(e) => {
-              const v = Number(e.target.value);
-              if (!isNaN(v)) onChange(clamp(v));
+            value={rawInput !== null ? rawInput : formatted}
+            onFocus={() => setRawInput(String(value))}
+            onBlur={() => {
+              setRawInput(null);
+              if (rawInput === "" || rawInput === null) onChange(0);
             }}
-            className={`w-full py-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border)] text-[var(--text-primary)] font-sans text-base font-semibold text-right outline-none transition-all duration-200 focus:border-[var(--accent)] focus:shadow-[0_0_12px_var(--glow-cyan)] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${prefix ? "pl-7 pr-3" : "px-3"} ${suffix ? "pr-8" : ""}`}
+            onChange={(e) => {
+              const input = e.target.value.replace(/[$,%]/g, "").replace(/,/g, "");
+              setRawInput(input);
+              const v = Number(input);
+              if (!isNaN(v)) onChange(Math.min(max, Math.max(0, v)));
+            }}
+            className="w-full py-2 px-3 rounded-lg bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-primary)] font-sans text-base font-semibold text-right outline-none transition-all duration-200 focus:border-[var(--accent)] focus:shadow-[0_0_12px_var(--glow-cyan)]"
           />
-          {suffix && (
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] font-sans text-sm pointer-events-none">
-              {suffix}
-            </span>
-          )}
         </div>
       </div>
     </div>
@@ -126,7 +122,7 @@ function ResultCard({ label, value, variant = "default", hero = false }: ResultC
     <div
       className={`glass-card ${hero ? "p-5 md:p-6" : "p-3 md:p-4"} border ${flash ? flashBorder : (hero ? "border-emerald-500/50" : borderClass)} transition-all duration-1000`}
       style={{
-        backgroundColor: flash ? flashBg : hero ? "rgba(16,185,129,0.08)" : undefined,
+        backgroundColor: flash ? flashBg : hero ? "rgba(16,185,129,0.25)" : undefined,
         boxShadow: flash
           ? variant === "highlight"
             ? "0 0 40px rgba(239,68,68,0.5), inset 0 0 30px rgba(239,68,68,0.15)"
@@ -155,10 +151,11 @@ export default function RoiCalculator() {
   const [spend, setSpend] = useState(880_000_000);
   const [failRate, setFailRate] = useState(35);
   const [misaligned, setMisaligned] = useState(20);
-  const [costPerHour, setCostPerHour] = useState(100);
-  const [delayPct, setDelayPct] = useState(2);
   const [reallocDays, setReallocDays] = useState(5);
-  const [reduction, setReduction] = useState(25);
+
+  const costPerHour = 100;
+  const delayPct = 2;
+  const reduction = 25;
 
   const results = useMemo(() => {
     const wasteFromFailed = spend * (failRate / 100);
@@ -181,9 +178,9 @@ export default function RoiCalculator() {
   }, [spend, failRate, misaligned, delayPct, reallocDays, reduction]);
 
   return (
-    <div className="glass-card p-6 md:p-8" style={{ background: 'color-mix(in srgb, var(--accent) 4%, white)' }}>
+    <div className="glass-card p-6 md:p-8" style={{ background: 'color-mix(in srgb, var(--accent) 8%, #f1f5f9)' }}>
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-lg flex items-center justify-center text-[var(--accent)]" style={{ background: `color-mix(in srgb, var(--accent) 12%, transparent)` }}>
+        <div className="w-10 h-10 rounded-lg flex items-center justify-center text-[var(--accent)]" style={{ background: `color-mix(in srgb, var(--accent) 18%, transparent)` }}>
           <IconCalculator size={20} stroke={1.5} />
         </div>
         <div>
@@ -230,25 +227,27 @@ export default function RoiCalculator() {
             step={1}
             suffix="%"
           />
-          <NumberInput
-            label="Cost per employee per hour"
-            value={costPerHour}
-            onChange={setCostPerHour}
-            min={50}
-            max={300}
-            step={5}
-            prefix="$"
-          />
-          <NumberInput
-            label="Weekly cost of delay"
-            sublabel="Industry benchmark: 2%"
-            value={delayPct}
-            onChange={setDelayPct}
-            min={0.5}
-            max={5}
-            step={0.5}
-            suffix="%"
-          />
+          <div className="mb-4">
+            <div className="flex items-center gap-3">
+              <div className="flex-1 min-w-0">
+                <p className="text-base text-[var(--text-primary)] font-medium leading-tight">Fully loaded cost per employee per hour</p>
+              </div>
+              <div className="shrink-0 w-40 py-2 px-3 text-right">
+                <span className="text-base font-semibold text-[var(--text-primary)] font-sans">$100</span>
+              </div>
+            </div>
+          </div>
+          <div className="mb-4">
+            <div className="flex items-center gap-3">
+              <div className="flex-1 min-w-0">
+                <p className="text-base text-[var(--text-primary)] font-medium leading-tight">Weekly cost of delay percentage</p>
+                <p className="text-sm text-[var(--text-secondary)] font-sans uppercase tracking-wider mt-0.5">Industry benchmark: 2%</p>
+              </div>
+              <div className="shrink-0 w-40 py-2 px-3 text-right">
+                <span className="text-base font-semibold text-[var(--text-primary)] font-sans">2%</span>
+              </div>
+            </div>
+          </div>
           <NumberInput
             label="Days to reallocate resources"
             value={reallocDays}
@@ -257,16 +256,17 @@ export default function RoiCalculator() {
             max={30}
             step={1}
           />
-          <NumberInput
-            label="Projected waste reduction"
-            sublabel="Industry benchmark: 25%"
-            value={reduction}
-            onChange={setReduction}
-            min={5}
-            max={50}
-            step={1}
-            suffix="%"
-          />
+          <div className="mb-4">
+            <div className="flex items-center gap-3">
+              <div className="flex-1 min-w-0">
+                <p className="text-base text-[var(--text-primary)] font-medium leading-tight">Projected percentage reduction in waste</p>
+                <p className="text-sm text-[var(--text-secondary)] font-sans uppercase tracking-wider mt-0.5">Industry benchmark: 25%</p>
+              </div>
+              <div className="shrink-0 w-40 py-2 px-3 text-right">
+                <span className="text-base font-semibold text-[var(--text-primary)] font-sans">25%</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Right — Results */}
@@ -274,17 +274,14 @@ export default function RoiCalculator() {
           <ResultCard
             label="Estimated waste from failed initiatives"
             value={formatCurrency(results.wasteFromFailed)}
-            variant="highlight"
           />
           <ResultCard
             label="Estimated waste from misaligned work"
             value={formatCurrency(results.wasteFromMisaligned)}
-            variant="highlight"
           />
           <ResultCard
             label="Total potential annual waste"
             value={formatCurrency(results.totalWaste)}
-            variant="highlight"
           />
           <ResultCard
             label="Cost of delay from reallocation lag"

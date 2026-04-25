@@ -22,6 +22,11 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
   background-color: var(--bg-primary);
@@ -265,7 +270,13 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .dark-component {
+    padding: 2rem;
+  }
 }
 
 .dark-component .glass-card {
@@ -314,7 +325,13 @@ body {
 /* ─── LIGHT COMPONENT (light island for portfolio demos) ─── */
 .light-component {
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .light-component {
+    padding: 2rem;
+  }
 }
 
 .light-component .glass-card {
@@ -400,7 +417,7 @@ body {
 .section-heading {
   position: relative;
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .section-heading::after {

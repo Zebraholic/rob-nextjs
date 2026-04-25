@@ -50,7 +50,7 @@ export default function SkillsSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="terminal-label mb-4">skills.map()</div>
         <h2
-          className="text-4xl md:text-5xl font-bold section-heading mb-16 font-display"
+          className="text-4xl md:text-5xl font-bold section-heading font-display"
         >
           Core Skills
         </h2>
@@ -61,14 +61,16 @@ export default function SkillsSection() {
               key={cat.title}
               className={`glass-card p-6 border ${cat.borderColor} group`}
             >
-              <div
-                className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cat.color} flex items-center justify-center text-[var(--accent)] mb-4`}
-              >
-                {cat.icon}
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cat.color} flex items-center justify-center text-[var(--accent)] shrink-0`}
+                >
+                  {cat.icon}
+                </div>
+                <h3 className="text-base font-semibold font-display">
+                  {cat.title}
+                </h3>
               </div>
-              <h3 className="text-base font-semibold mb-4 font-display">
-                {cat.title}
-              </h3>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill) => (
                   <span key={skill} className="skill-pill">

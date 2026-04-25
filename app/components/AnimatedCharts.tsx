@@ -192,7 +192,7 @@ export default function AnimatedCharts() {
   return (
     <div className="grid md:grid-cols-2 gap-6">
       {/* Donut */}
-      <div className="glass-card p-6 md:p-8 flex flex-col items-center justify-center relative">
+      <div className="glass-card p-6 md:p-8 flex flex-col items-center justify-center relative" style={{ background: 'color-mix(in srgb, var(--accent) 6%, var(--bg-card))' }}>
         <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6 self-start">
           Projects delivering meaningful ROI
         </p>
@@ -200,7 +200,7 @@ export default function AnimatedCharts() {
       </div>
 
       {/* Frequency */}
-      <div className="glass-card p-6 md:p-8">
+      <div className="glass-card p-6 md:p-8" style={{ background: 'color-mix(in srgb, var(--accent-secondary) 6%, var(--bg-card))' }}>
         <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6">
           How often orgs re-evaluate portfolio priorities
         </p>
@@ -208,7 +208,7 @@ export default function AnimatedCharts() {
       </div>
 
       {/* Comparison — spans full width */}
-      <div className="glass-card p-6 md:p-8 md:col-span-2">
+      <div className="glass-card p-6 md:p-8 md:col-span-2" style={{ background: 'color-mix(in srgb, var(--accent) 4%, var(--bg-card))' }}>
         <p className="text-sm font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-6">
           Dynamic Planners vs Plodders — the SPM advantage
         </p>

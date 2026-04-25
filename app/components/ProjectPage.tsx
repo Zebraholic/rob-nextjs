@@ -47,7 +47,7 @@ export default function ProjectPage({ title, description, tags, icon, color, acc
       } as React.CSSProperties;
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)]" style={themeVars}>
+    <div className="min-h-screen bg-[var(--bg-primary)] overflow-x-hidden" style={themeVars}>
       {/* Hero header */}
       <motion.div
         className="relative overflow-hidden bg-[var(--bg-primary)]"
@@ -77,10 +77,10 @@ export default function ProjectPage({ title, description, tags, icon, color, acc
             </Link>
           </motion.div>
 
-          <div className="flex items-start gap-5">
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
             {/* Animated icon */}
             <motion.div
-              className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center text-[var(--accent)] shrink-0`}
+              className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center text-[var(--accent)] shrink-0`}
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 15 }}
@@ -91,8 +91,8 @@ export default function ProjectPage({ title, description, tags, icon, color, acc
             <div>
               <motion.h1
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-primary)] font-display mb-3"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.15, duration: 0.4 }}
               >
                 {title}
@@ -100,8 +100,8 @@ export default function ProjectPage({ title, description, tags, icon, color, acc
 
               <motion.p
                 className="text-[var(--text-secondary)] text-lg max-w-2xl leading-relaxed mb-4"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.25, duration: 0.4 }}
               >
                 {description}
@@ -138,8 +138,8 @@ export default function ProjectPage({ title, description, tags, icon, color, acc
       {/* Demo content */}
       <motion.div
         className="max-w-5xl mx-auto px-6 pb-20"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       >
         <div className={dark ? "dark-component" : "light-component"}>

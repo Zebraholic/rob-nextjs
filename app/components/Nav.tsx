@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { IconAtom } from "@tabler/icons-react";
 
 const links = [
@@ -21,6 +21,17 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const hash = href.replace("/", "");
+    const id = hash.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", hash);
+    }
+  }, []);
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -32,8 +43,8 @@ export default function Nav() {
           href="#"
           className="group flex items-center gap-4"
         >
-          <IconAtom size={36} className="text-[var(--accent)] group-hover:rotate-180 transition-transform duration-500" stroke={1.5} />
-          <span className="text-4xl font-extrabold tracking-[0.15em] font-display gradient-text">
+          <IconAtom size={28} className="text-[var(--accent)] group-hover:rotate-180 transition-transform duration-500 sm:w-9 sm:h-9" stroke={1.5} />
+          <span className="text-xl sm:text-2xl md:text-4xl font-extrabold tracking-[0.15em] font-display gradient-text">
             ROB TAVARES
           </span>
         </a>
@@ -44,12 +55,13 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
+              onClick={(e) => handleNavClick(e, l.href)}
               className="text-base text-[var(--text-secondary)] hover:text-[var(--accent-light)] transition-colors duration-200"
             >
               {l.label}
             </a>
           ))}
-          <a href="#contact" className="btn-primary text-sm !py-2 !px-5">
+          <a href="/#contact" onClick={(e) => handleNavClick(e, '/#contact')} className="btn-primary text-sm !py-2 !px-5">
             Get in Touch
           </a>
         </div>
@@ -85,7 +97,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              onClick={() => setMobileOpen(false)}
+              onClick={(e) => { handleNavClick(e, l.href); setMobileOpen(false); }}
               className="text-[var(--text-secondary)] hover:text-[var(--accent-light)] transition-colors py-2"
             >
               {l.label}

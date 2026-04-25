@@ -27,7 +27,7 @@ export default function Home() {
       <Nav />
 
       {/* ───── HERO ───── */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
         {/* Ambient glows */}
         <div className="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[rgba(0,212,255,0.08)] rounded-full blur-[150px] pointer-events-none" />
         <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] bg-[rgba(123,97,255,0.08)] rounded-full blur-[150px] pointer-events-none" />
@@ -72,7 +72,7 @@ export default function Home() {
           </div>
 
           {/* Status indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-8 mt-16 text-sm font-mono text-[var(--text-secondary)] uppercase tracking-wider">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-8 mt-12 sm:mt-16 text-xs sm:text-sm font-mono text-[var(--text-secondary)] uppercase tracking-wider">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
               Engineering leadership
@@ -93,13 +93,13 @@ export default function Home() {
       </section>
 
       {/* ───── ABOUT ───── */}
-      <section id="about" className="py-28 px-6 relative section-light">
+      <section id="about" className="py-28 px-6 relative section-light overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left visual */}
           <div className="relative">
             <div
-              className="glass-card p-10 aspect-square flex items-center justify-center"
+              className="glass-card p-6 sm:p-10 aspect-auto sm:aspect-square flex items-center justify-center"
               style={{
                 backgroundImage: "linear-gradient(135deg, #1a1a3e, #2a1a4e, #141430, #1a1a3e, #0b0b1a)",
                 backgroundSize: "300% 300%",
@@ -131,7 +131,7 @@ export default function Home() {
           <div>
             <div className="terminal-label mb-4">about.config</div>
             <h2
-              className="text-4xl md:text-5xl font-bold section-heading mb-8 font-display"
+              className="text-4xl md:text-5xl font-bold section-heading font-display"
             >
               Who I Am
             </h2>
@@ -173,7 +173,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="terminal-label mb-4">portfolio.showcase()</div>
           <h2
-            className="text-4xl md:text-5xl font-bold section-heading mb-6 font-display"
+            className="text-4xl md:text-5xl font-bold section-heading font-display"
           >
             Things I Build
           </h2>
@@ -187,11 +187,11 @@ export default function Home() {
       </section>
 
       {/* ───── HOW I WORK ───── */}
-      <section id="experience" className="py-28 px-6 relative">
+      <section id="experience" className="py-28 px-6 relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="terminal-label mb-4">process.methods</div>
           <h2
-            className="text-4xl md:text-5xl font-bold section-heading mb-16 font-display"
+            className="text-4xl md:text-5xl font-bold section-heading font-display"
           >
             How I Work
           </h2>
@@ -246,12 +246,12 @@ export default function Home() {
       </section>
 
       {/* ───── CONTACT ───── */}
-      <section id="contact" className="py-28 px-6 relative section-light">
+      <section id="contact" className="py-28 px-6 relative section-light overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[rgba(0,212,255,0.05)] rounded-full blur-[150px] pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="terminal-label mb-4 justify-center">connection.open</div>
           <h2
-            className="text-4xl md:text-5xl font-bold mb-6 font-display"
+            className="text-4xl md:text-5xl font-bold font-display mb-6"
           >
             Get in Touch
           </h2>

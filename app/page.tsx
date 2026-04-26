@@ -178,8 +178,7 @@ export default function Home() {
             Things I Build
           </h2>
           <p className="text-[var(--text-secondary)] text-lg mb-12 max-w-2xl leading-relaxed">
-            Interactive data visualisations, calculators, and UI components
-            I&apos;ve designed and developed. These are live, functional recreations.
+            Interactive data visualisations, calculators, and UI components and more.
           </p>
 
           <PortfolioShowcase />
@@ -256,8 +255,7 @@ export default function Home() {
             Get in Touch
           </h2>
           <p className="text-[var(--text-secondary)] text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-            Have a project in mind or just want to connect? Drop me a message
-            and let&apos;s start a conversation.
+            Drop me a message and let&apos;s start a conversation.
           </p>
 
           <div className="max-w-lg mx-auto mb-10">

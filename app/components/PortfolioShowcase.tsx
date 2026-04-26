@@ -8,6 +8,8 @@ import {
   IconChartBar,
   IconDashboard,
   IconLock,
+  IconForms,
+  IconActivity,
   IconArrowRight,
 } from "@tabler/icons-react";
 
@@ -62,6 +64,26 @@ const PROJECTS: Project[] = [
     color: "from-amber-500/20 to-orange-500/20",
     accent: "#f59e0b",
   },
+  {
+    slug: "form-wizard",
+    title: "Multi-step Form Wizard",
+    description:
+      "Progressive form with validation, step navigation, plan selection, and animated transitions between stages.",
+    tags: ["Forms", "Validation", "UX"],
+    icon: <IconForms size={28} stroke={1.5} />,
+    color: "from-rose-500/20 to-pink-500/20",
+    accent: "#f43f5e",
+  },
+  {
+    slug: "activity-feed",
+    title: "Real-time Activity Feed",
+    description:
+      "Live-updating notification feed with type filters, read/unread states, auto-streaming events, and pause controls.",
+    tags: ["Real-time", "Filters", "State"],
+    icon: <IconActivity size={28} stroke={1.5} />,
+    color: "from-emerald-500/20 to-teal-500/20",
+    accent: "#34d399",
+  },
 ];
 
 const cardVariants = {
@@ -72,7 +94,7 @@ const cardVariants = {
     transition: {
       delay: i * 0.1,
       duration: 0.5,
-      ease: [0.4, 0, 0.2, 1],
+      ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
     },
   }),
 };

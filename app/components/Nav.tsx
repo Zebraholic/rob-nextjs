@@ -6,8 +6,8 @@ import { IconAtom } from "@tabler/icons-react";
 const links = [
   { label: "About", href: "/#about" },
   { label: "Skills", href: "/#skills" },
-  { label: "Portfolio", href: "/#portfolio" },
-  { label: "Experience", href: "/#experience" },
+  { label: "Samples", href: "/#portfolio" },
+  { label: "Process", href: "/#experience" },
   { label: "Contact", href: "/#contact" },
 ];
 

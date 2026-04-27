@@ -51,8 +51,8 @@ export default function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-4 leading-relaxed text-balance">
-            Engineering-focused leader with 15+ years delivering scalable web
-            platforms, leading dev teams, and shipping high-impact products.
+            <span className="font-bold text-[var(--text-primary)]">Engineering-focused leader</span> who architects and builds scalable web
+            platforms, writes production code daily, and ships high-impact products.
           </p>
 
           {/* Code-style subtext */}
@@ -75,11 +75,11 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-8 mt-12 sm:mt-16 text-xs sm:text-sm font-mono text-[var(--text-secondary)] uppercase tracking-wider">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
-              Engineering leadership
+              Hands-on engineer
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--glow-cyan)]" />
-              15+ years experience
+              Cross Functional Builder
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-secondary)] shadow-[0_0_8px_var(--glow-purple)]" />
@@ -116,7 +116,7 @@ export default function Home() {
                   className="text-xl font-bold leading-relaxed font-display"
                   style={{ color: "#ffffff" }}
                 >
-                  Leading teams.
+                  Writing code.
                   <br />
                   Shipping platforms.
                 </p>
@@ -141,8 +141,8 @@ export default function Home() {
                 <span className="text-[var(--accent-light)] font-medium">
                   engineering-focused leader
                 </span>{" "}
-                with 15+ years delivering scalable web platforms and
-                customer-facing products. I lead developers, drive execution,
+                who builds scalable web platforms and
+                customer-facing products. I write production code daily, drive execution,
                 and partner with product and design to ship high-impact features.
               </p>
               <p>
@@ -150,14 +150,14 @@ export default function Home() {
                 <span className="text-[var(--text-primary)] font-medium">
                   React, Next.js, TypeScript, APIs, and CMS architecture
                 </span>
-                , combined with operational rigor to improve velocity, code
-                quality, and team performance.
+                , combined with a bias for building. I stay close to the code
+                while driving velocity and quality.
               </p>
               <p>
                 I&apos;m experienced in experimentation, performance optimization,
                 and building engineering best practices in fast-paced
-                environments. I bridge business, product, and engineering
-                to translate complex requirements into scalable solutions.
+                environments. I translate complex requirements into clean,
+                scalable solutions, and I ship them myself.
               </p>
             </div>
           </div>
@@ -177,8 +177,8 @@ export default function Home() {
           >
             Things I Build
           </h2>
-          <p className="text-[var(--text-secondary)] text-lg mb-12 max-w-2xl leading-relaxed">
-            Interactive data visualisations, calculators, and UI components and more.
+          <p className="text-[var(--text-secondary)] text-lg pb-8 leading-relaxed">
+            Interactive samples:  data visualisations, calculators, and UI components and more.
           </p>
 
           <PortfolioShowcase />
@@ -199,43 +199,48 @@ export default function Home() {
             {[
               {
                 icon: <IconUsers size={32} stroke={1.5} />,
-                title: "Team Leadership",
-                desc: "Manage and mentor developers through 1:1s, coaching, and code reviews to improve team effectiveness and delivery quality.",
+                title: "Technical Leadership",
+                desc: "Drive architecture decisions, establish engineering standards, and unblock teams through hands-on problem solving.",
+                color: "#fee2e2",
               },
               {
                 icon: <IconRocket size={32} stroke={1.5} />,
                 title: "Platform Delivery",
                 desc: "End-to-end execution of web rebrands, migrations, and platform launches, delivered on time with a high bar for quality.",
+                color: "#f3e8ff",
               },
               {
                 icon: <IconTestPipe size={32} stroke={1.5} />,
                 title: "Experimentation",
                 desc: "Build and scale A/B testing programs to enable rapid iteration and data-driven product decisions.",
+                color: "#ffedd5",
               },
               {
                 icon: <IconTargetArrow size={32} stroke={1.5} />,
                 title: "Cross-Functional",
-                desc: "Partner with product, design, and marketing to define roadmap priorities and align on technical solutions.",
+                desc: "Partner with product, design, and stakeholders to scope requirements and translate them into technical solutions.",
+                color: "#dcfce7",
               },
               {
                 icon: <IconAccessible size={32} stroke={1.5} />,
                 title: "Engineering Standards",
                 desc: "Establish best practices across deployment workflows, QA, reusable component architecture, and accessibility.",
+                color: "#dbeafe",
               },
               {
                 icon: <IconRulerMeasure size={32} stroke={1.5} />,
                 title: "System Integration",
                 desc: "Architect integrations across third-party systems, analytics, and data tools to improve reliability and tracking.",
-              },
+                color: "#fef9c3",              },
             ].map((item) => (
-              <div key={item.title} className="glass-card p-7 group">
-                <div className="text-[var(--accent)] mb-4 group-hover:animate-float">
+              <div key={item.title} className="glass-card p-7 group" style={{ background: item.color }}>
+                <div className="text-gray-900 mb-4 group-hover:animate-float">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-semibold mb-2 font-display">
+                <h3 className="text-lg font-semibold mb-2 font-display text-gray-900">
                   {item.title}
                 </h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed text-base">
+                <p className="text-gray-700 leading-relaxed text-base">
                   {item.desc}
                 </p>
               </div>

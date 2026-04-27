@@ -185,7 +185,7 @@ export default function RoiCalculator() {
         </div>
         <div>
           <h4
-            className="text-lg font-semibold font-display"
+            className="text-base text-lg font-semibold font-display text-[var(--text-primary)] mb-1"
           >
             ROI Impact Calculator
           </h4>

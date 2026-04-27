@@ -10,9 +10,9 @@ const categories = [
   {
     title: "Engineering Leadership",
     icon: <IconUsers size={22} stroke={1.5} />,
-    color: "from-fuchsia-500/15 to-pink-500/15",
-    borderColor: "border-fuchsia-500/15 hover:border-fuchsia-500/35",
-    skills: ["Team Management", "Mentorship", "Performance Development", "Hiring Support", "Code Reviews"],
+    color: "from-cyan-500/15 to-blue-500/15",
+    borderColor: "border-cyan-500/15 hover:border-cyan-500/35",
+    skills: ["Technical Direction", "Code Reviews", "Architecture Decisions", "Mentorship", "Cross-team Collaboration"],
   },
   {
     title: "Technical",
@@ -24,22 +24,22 @@ const categories = [
   {
     title: "Architecture & Delivery",
     icon: <IconServer size={22} stroke={1.5} />,
-    color: "from-emerald-500/15 to-teal-500/15",
-    borderColor: "border-emerald-500/15 hover:border-emerald-500/35",
+    color: "from-cyan-500/15 to-blue-500/15",
+    borderColor: "border-cyan-500/15 hover:border-cyan-500/35",
     skills: ["System Design", "API Integrations", "CI/CD", "Scalable Web Platforms"],
   },
   {
     title: "Practices",
     icon: <IconClipboardCheck size={22} stroke={1.5} />,
-    color: "from-sky-500/15 to-indigo-500/15",
-    borderColor: "border-sky-500/15 hover:border-sky-500/35",
+    color: "from-cyan-500/15 to-blue-500/15",
+    borderColor: "border-cyan-500/15 hover:border-cyan-500/35",
     skills: ["Agile/Scrum", "A/B Testing", "CRO", "SEO", "Accessibility", "UX/UI"],
   },
   {
     title: "Tools & Platforms",
     icon: <IconTool size={22} stroke={1.5} />,
-    color: "from-violet-500/15 to-purple-500/15",
-    borderColor: "border-violet-500/15 hover:border-violet-500/35",
+    color: "from-cyan-500/15 to-blue-500/15",
+    borderColor: "border-cyan-500/15 hover:border-cyan-500/35",
     skills: ["Git/GitHub", "Claude Code", "GitHub Copilot", "Vercel", "Confluence", "Figma", "Jira"],
   },
 ];

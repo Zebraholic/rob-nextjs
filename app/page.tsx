@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "./components/Nav";
 import SkillsSection from "./components/SkillsSection";
 import PortfolioShowcase from "./components/PortfolioShowcase";
@@ -28,10 +29,10 @@ export default function Home() {
 
       {/* ───── HERO ───── */}
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
-        {/* Ambient glows */}
-        <div className="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[rgba(0,212,255,0.08)] rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] bg-[rgba(123,97,255,0.08)] rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[rgba(0,212,255,0.02)] rounded-full blur-[100px] pointer-events-none" />
+        {/* Ambient glows — gradients, not blur filters, which are very slow on iOS Safari */}
+        <div className="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[radial-gradient(closest-side,rgba(0,212,255,0.08),transparent)] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] bg-[radial-gradient(closest-side,rgba(123,97,255,0.08),transparent)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(closest-side,rgba(0,212,255,0.02),transparent)] pointer-events-none" />
 
         {/* Twinkle stars */}
         <Twinkles />
@@ -107,9 +108,11 @@ export default function Home() {
               }}
             >
               <div className="text-center">
-                <img
+                <Image
                   src="/images/rob-avatar.png"
                   alt="Robert Tavares"
+                  width={192}
+                  height={192}
                   className="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-2 border-[rgba(0,212,255,0.2)]"
                 />
                 <p
@@ -251,7 +254,7 @@ export default function Home() {
 
       {/* ───── CONTACT ───── */}
       <section id="contact" className="py-28 px-6 relative section-light overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[rgba(0,212,255,0.05)] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[radial-gradient(closest-side,rgba(0,212,255,0.05),transparent)] pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="terminal-label mb-4 justify-center">connection.open</div>
           <h2

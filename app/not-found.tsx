@@ -8,7 +8,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center px-6 relative overflow-hidden">
       {/* Ambient glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[rgba(0,212,255,0.04)] rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(closest-side,rgba(0,212,255,0.04),transparent)] pointer-events-none" />
 
       <div className="text-center relative z-10">
         <motion.div

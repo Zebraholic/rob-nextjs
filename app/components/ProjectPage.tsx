@@ -57,8 +57,10 @@ export default function ProjectPage({ title, description, tags, icon, color, acc
       >
         {/* Ambient glow */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[150px] pointer-events-none"
-          style={{ backgroundColor: accent ? `${accent}15` : "rgba(0,212,255,0.08)" }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none"
+          style={{
+            background: `radial-gradient(closest-side, ${accent ? `${accent}15` : "rgba(0,212,255,0.08)"}, transparent)`,
+          }}
         />
 
         <div className="max-w-5xl mx-auto px-6 pt-8 pb-12 relative z-10">
